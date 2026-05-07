@@ -1,0 +1,90 @@
+.news-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Tin đầu tiên - ảnh lớn (đảm bảo giữ đúng tỷ lệ ảnh gốc) */
+.first-article {
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.first-article img {
+  width: 100%;
+  height: auto; /* Giữ nguyên tỷ lệ gốc của ảnh */
+  border-radius: 0; /* Không bo góc */
+  display: block;
+}
+
+/* Điều chỉnh font chữ của tiêu đề tin đầu tiên */
+.first-article h2 {
+  font-size: 18px; /* Giảm kích thước chữ */
+  font-weight: bold;
+  margin-top: 8px;
+  padding: 0 10px;
+  line-height: 1.3;
+}
+
+.first-article:hover {
+  transform: scale(1.02);
+}
+
+/* Danh sách tin tức - 1 cột */
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+.article-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+.article-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.article-item h3 {
+  font-size: 16px; /* Điều chỉnh kích thước tiêu đề tin nhỏ hơn */
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+/* Hiệu ứng hover */
+.article-item:hover {
+  background: #f8f8f8;
+}
+
+/* Nút "Xem thêm" */
+.load-more-btn {
+  display: block;
+  width: 160px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.load-more-btn:hover {
+  background: #0056b3;
+}

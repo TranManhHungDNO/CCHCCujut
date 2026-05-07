@@ -1,0 +1,16 @@
+{
+    "app": {
+        "title": "CCHC xã Cư Jút",
+        "textColor": "white",
+        "leftButton": "back",
+        "actionBarHidden": true,
+        "hideIOSSafeAreaBottom": true,
+        "statusBar": "transparent"
+    },
+       "listCSS": [],
+    "listSyncJS": [],
+    "listAsyncJS": [],
+    "template": {
+        "name": "zaui-egovernment"
+    }
+}
