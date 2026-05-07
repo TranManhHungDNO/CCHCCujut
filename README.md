@@ -1,37 +1,28 @@
-# E Government Template
+Mẫu Chính quyền điện tử (E-Government Template)
+Mục lục
+Tổng quan
+Cấu trúc dự án
+Quản lý trạng thái
+Cài đặt
+Cấu hình
+Scripts
+Giấy phép
+Tổng quan
 
-## Table of Contents
+Template dành cho ứng dụng Zalo Mini App Chính quyền điện tử.
 
--   [Overview](#overview)
--   [Project Structure](#project-structure)
--   [State Management](#state-management)
--   [Installation](#installation)
--   [Configuration](#configuration)
--   [Scripts](#scripts)
--   [License](#license)
+Ảnh minh họa
+		
+<img width="1604" alt="screen shot" src="./readme-assets/screen1.png">	<img width="1604" alt="screen shot" src="./readme-assets/screen2.png">	<img width="1604" alt="screen shot" src="./readme-assets/screen3.png">
+<img width="1604" alt="screen shot" src="./readme-assets/screen4.png">	<img width="1604" alt="screen shot" src="./readme-assets/screen5.png">	<img width="1604" alt="screen shot" src="./readme-assets/screen6.png">
+Demo
 
-## Overview
+Quét mã QR bằng ứng dụng Zalo để trải nghiệm Mini App mẫu.
 
-Template for E Government Zalo Mini App
+Cấu trúc dự án
 
-### Screen shot
+Dự án được tổ chức theo cấu trúc thư mục nhằm dễ quản lý và mở rộng mã nguồn.
 
-|                                                                        |                                                                        |                                                                        |
-| :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img width="1604" alt="screen shot" src="./readme-assets/screen1.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen2.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen3.png"> |
-| <img width="1604" alt="screen shot" src="./readme-assets/screen4.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen5.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen6.png"> |
-
-### Demo
-
-Scan this QR by Zalo to preview Sample Mini App
-
-![QR!](/readme-assets/qr.png)
-
-## Project Structure
-
-The project follows a specific structure to organize its codebase. Here's an overview of the key directories and their contents:
-
-```shell
 .
 ├── src
 │   ├── components
@@ -78,72 +69,77 @@ The project follows a specific structure to organize its codebase. Here's an ove
 ├── .gitignore
 ├── package.json
 └── README.md
-```
+Mô tả các thư mục chính
+src/components: Chứa các UI component và component dùng chung trong toàn bộ dự án.
+src/pages: Chứa các trang và các section của từng trang. Mỗi page tương ứng với một route hoặc giao diện cụ thể của ứng dụng.
+src/pages/index: Chứa cấu hình route của ứng dụng.
+src/constants: Chứa các hằng số sử dụng trong dự án như API endpoint và các giá trị cấu hình.
+.env.production và .env.development: Dùng để cấu hình VITE_BASE_URL theo từng môi trường triển khai.
+.env: Chứa các biến cấu hình của ứng dụng. Cần cập nhật APP_ID tại đây.
+src/utils: Chứa các hàm tiện ích dùng chung.
+src/types: Chứa các khai báo kiểu dữ liệu (TypeScript) nhằm tăng tính an toàn và dễ bảo trì mã nguồn.
+src/css: Chứa CSS toàn cục và cấu hình Tailwind CSS.
+src/assets: Chứa tài nguyên tĩnh như hình ảnh, font chữ,...
+src/mock: Chứa dữ liệu giả lập để phục vụ kiểm thử giao diện.
+src/services:
+services.ts: Xử lý các API service chính.
+services.mock.ts: Mock service dùng khi test UI.
+zalo.ts: Chứa các hàm gọi API của Zalo Mini App.
+Quản lý trạng thái
 
--   **`src/components`**: Contains UI components and common components used throughout the project.
--   **`src/pages`**: Contains pages and page sections. Each page represents a specific route or view of the application.
--   **`src/pages/index`**: Contains route configurations for the pages. This is where you define the routing logic of the application.
--   **`src/constants`**: Defines constants used in the project, such as API endpoints and other configuration values.
--   **`env.production` and `env.development`**: Edit the API base URL in these environment files (`VITE_BASE_URL`) based on your deployment environment.
--   **`.env`**: Contains configuration variables for the application. Make sure to update the `APP_ID` in this file.
--   **`src/utils`**: Contains utility functions that can be used across the project.
--   **`src/types`**: Contains type declarations for better type safety and code documentation.
--   **`src/css`**: Contains global CSS styles and Tailwind CSS configurations.
--   **`src/assets`**: Contains static assets such as images, fonts, and other resources used in the project.
--   **`src/mock`**: fake data for testing UI
--   **`src/services`**:
-    -   **`services.ts`**: This file contains the implementation for service call APIs.
-    -   **`services.mock.ts`**: This file is used for mocking services during UI testing.
-    -   **`zalo.ts`**: This file contains the implementation for Zalo APIS call.
+Dự án sử dụng Zustand
+ để quản lý state.
 
-## State Management
+State được chia thành nhiều “slice” theo từng chức năng:
 
-[Zustand](https://github.com/pmndrs/zustand) is used for state management in this project. The state is organized into different slices based on the feature it belongs to. The following slices are available:
+authSlice: Quản lý trạng thái xác thực người dùng.
+appSlice: Quản lý trạng thái toàn ứng dụng như thông báo và giao diện theme.
+feedbackSlice: Quản lý dữ liệu phản hồi cho các tính năng mở rộng sau này.
+informationGuideSlice: Quản lý dữ liệu hướng dẫn thông tin.
+organizationSlice: Quản lý thông tin tổ chức/cơ quan.
+scheduleSlice: Quản lý lịch hẹn và đặt lịch làm việc.
 
--   **`authSlice`**: Manages authentication-related state.
--   **`appSlice`**: Manages application-level state, including notifications and theme settings.
--   **`feedbackSlice`**: Handles feedback-related state for future features.
--   **`informationGuideSlice`**: Manages guideline-related state for a specific feature.
--   **`organizationSlice`**: Handles organization information-related state for a specific feature.
--   **`scheduleSlice`**: Manages appointment scheduling-related state for a specific feature.
+Mã nguồn quản lý state nằm trong thư mục:
 
-The state management code can be found in the `/src/store` directory.
+/src/store
+Cài đặt
 
-## Installation
+Để cài đặt các dependency cho dự án, thực hiện các bước sau:
 
-To install the project dependencies, please follow the steps below:
+Đảm bảo đã cài đặt Node.js
+ trên máy tính.
+Mở Terminal hoặc Command Prompt và di chuyển tới thư mục gốc của dự án.
+Chạy lệnh sau để cài đặt dependency bằng yarn:
+yarn install
 
-1. Make sure you have [Node.js](https://nodejs.org) installed on your machine.
+Hoặc nếu dùng npm:
 
-2. Open a terminal or command prompt and navigate to the project's root directory.
+npm install
 
-3. Run the following command to install the project dependencies using **yarn**:
+Lệnh này sẽ tự động tải và cài đặt toàn bộ package được khai báo trong package.json.
 
-    ```shell
-    yarn install
-    ```
+Cấu hình
 
-    If you prefer to use **npm**, run the following command instead:
+Để cấu hình dự án theo môi trường triển khai và ứng dụng của riêng bạn, thực hiện các bước dưới đây.
 
-    ```shell
-    npm install
-    ```
+Cấu hình API Base URL
 
-    This will download and install all the necessary packages defined in the `package.json` file.
+Chỉnh sửa biến VITE_BASE_URL trong các file:
 
-## Configuration
+.env.production
+.env.development
 
-To configure the project for your specific deployment environment and application settings, follow the instructions below:
+Ví dụ:
 
-### API Base URL
+VITE_BASE_URL=https://api.example.com
+Cấu hình API Endpoint
 
--   Edit the API base URL in the environment files located at `env.production` and `env.development`. Look for the variable `VITE_BASE_URL` and update it with the appropriate URL for your backend API.
+Các endpoint API được khai báo tại file:
 
-### API Endpoints
+src/constants/common.ts
 
-The API endpoints are defined in the `src/constants/common.ts` file. Modify the values to match your desired endpoints. You can replace the values of the endpoints with the pattern name_endpoints. Here's an updated example:
+Ví dụ:
 
-```ts
 export const API = {
     GET_ORGANIZATION: "/get_organization_api",
     SEARCH_PROFILES: "/search_profiles_api",
@@ -155,19 +151,22 @@ export const API = {
     CREATE_SCHEDULE: "/create_schedule_api",
     GET_SCHEDULE: "/get_schedule_api",
 };
-```
 
-### Application ID
+Có thể chỉnh sửa tên endpoint phù hợp với backend của hệ thống.
 
--   Update the `APP_ID` in the `.env` file with the desired Zalo Mini App ID.
+Cấu hình APP_ID
 
-## Scripts
+Cập nhật APP_ID trong file .env bằng ID ứng dụng Zalo Mini App của bạn.
 
-The following scripts are available to run in the project:
+Ví dụ:
 
--   **`npm start`**: Starts the project.
--   **`npm deploy`**: Deploys the project.
+APP_ID=1234567890
+Scripts
 
-## License
+Các script hỗ trợ trong dự án:
 
-This project owned by **Zalo Mini App team**
+npm start: Khởi động ứng dụng.
+npm deploy: Triển khai ứng dụng lên môi trường production.
+Giấy phép
+
+Dự án thuộc sở hữu của Zalo Mini App Team.
