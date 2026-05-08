@@ -21,25 +21,54 @@ Dự án được phát triển nhằm hiện đại hóa nền hành chính cô
 - **Giao tiếp:** Webhook, API, Access Token.
 
 ## 📂 Cấu trúc thư mục (Source Code)
-## 📂 Cấu trúc dự án
 Dự án được tổ chức chặt chẽ theo cấu trúc thư mục hiện đại:
 
 ```text
 .
 ├── src
-│   ├── components      # UI components và các thành phần dùng chung
-│   ├── services        # Xử lý API (thật & mock) và Zalo SDK
-│   ├── mock            # Dữ liệu giả lập (db.json) phục vụ test UI
-│   ├── pages           # Các trang và router (cấu hình tại src/pages/index)
-│   ├── constants       # Hằng số, API Endpoints cấu hình chung
-│   ├── store           # Quản lý trạng thái tập trung (Zustand)
-│   ├── utils           # Các hàm tiện ích (Helper functions)
-│   ├── types           # Định nghĩa kiểu dữ liệu (TypeScript)
-│   ├── css             # Global CSS & Tailwind configuration
-│   └── assets          # Tài nguyên tĩnh (hình ảnh, fonts, icons)
-├── .env                # Biến môi trường chung (APP_ID)
-├── .env.development    # Cấu hình môi trường Development
-├── .env.production     # Cấu hình môi trường Production
-├── .gitignore          # Các tệp loại trừ khi git push
-├── package.json        # Danh sách thư viện và scripts
+│   ├── components
+│   │   ├── UIComponent1
+│   │   │   ├── index.ts
+│   │   │   └── UIComponent1.tsx
+│   │   ├── UIComponent2
+│   │   │   ├── index.ts
+│   │   │   └── UIComponent2.tsx
+│   │   └── ...
+│   ├── services
+│   │   ├── services.ts
+│   │   ├── services.mock.ts
+│   │   └── zalo.ts
+│   ├── mock
+│   │   ├── db.json
+│   ├── pages
+│   │   ├── [PageName]
+│   │   │   ├── index.ts
+│   │   │   └── [PageName].tsx
+│   │   ├── Page1
+│   │   │   ├── index.ts
+│   │   │   └── Page1.tsx
+│   │   ├── Page2
+│   │   │   ├── index.ts
+│   │   │   ├── Section1.tsx
+│   │   │   ├── Section2.tsx
+│   │   │   └── Page2.tsx
+│   │   └── ...
+│   ├── constants
+│   │   └── common.ts
+│   ├── utils
+│   ├── types
+│   ├── css
+│   │   ├── global.css
+│   │   ├── tailwind.css
+│   └── assets
+│       ├── image1.png
+│       ├── image2.png
+│       └── ...
+├── .env
+├── .env.production
+├── .env.development
+├── .gitignore
+├── package.json
 └── README.md
+
+##
