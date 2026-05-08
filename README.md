@@ -21,33 +21,25 @@ Dự án được phát triển nhằm hiện đại hóa nền hành chính cô
 - **Giao tiếp:** Webhook, API, Access Token.
 
 ## 📂 Cấu trúc thư mục (Source Code)
+## 📂 Cấu trúc dự án
+Dự án được tổ chức chặt chẽ theo cấu trúc thư mục hiện đại:
+
 ```text
+.
 ├── src
-│   ├── components   # Các nút SOS, Thanh tìm kiếm, Menu
-│   ├── pages        # Giao diện chính, Danh mục TTHC, Bản đồ
-│   ├── services     # Gọi API Zalo và Backend
-│   └── utils        # Thuật toán tính khoảng cách địa lý
-
-📈 Hiệu quả sáng kiến
-Thời gian: Rút ngắn 30-50% thời gian xử lý thủ tục.
-
-Tương tác: Tăng 100% khả năng tiếp cận thông tin chính thống của người dân.
-
-An ninh: Hệ thống SOS giúp xử lý sự cố nhanh gấp 3 lần thông thường.
-
-Tác giả: Trần Mạnh Hùng
-
-Đơn vị: Phòng Văn hóa – Xã hội xã Cư Jút, Lâm Đồng.
-
-
-### Bước 3: Cách đưa lên GitHub
-1.  Đăng nhập vào GitHub, vào Repository dự án của bạn.
-2.  Nhấn vào nút **Add file** -> **Create new file**.
-3.  Đặt tên file chính xác là: `README.md` (viết hoa toàn bộ chữ README).
-4.  Dán đoạn mã (Code) mình gửi ở Bước 2 vào.
-5.  Nhấn **Commit changes** để lưu lại.
-
-**Tại sao làm cách này lại tốt hơn copy nguyên văn?**
-* **Dễ đọc:** Nhà tuyển dụng hoặc đồng nghiệp nhìn vào biết ngay dự án làm về cái gì.
-* **Chuyên nghiệp:** Thể hiện bạn biết cách sử dụng Markdown và hiểu tư duy quản lý dự án phần mềm.
-* **Tối ưu tìm kiếm:** Các từ khóa về công nghệ (API, SDK, React) giúp dự án của bạn
+│   ├── components      # UI components và các thành phần dùng chung
+│   ├── services        # Xử lý API (thật & mock) và Zalo SDK
+│   ├── mock            # Dữ liệu giả lập (db.json) phục vụ test UI
+│   ├── pages           # Các trang và router (cấu hình tại src/pages/index)
+│   ├── constants       # Hằng số, API Endpoints cấu hình chung
+│   ├── store           # Quản lý trạng thái tập trung (Zustand)
+│   ├── utils           # Các hàm tiện ích (Helper functions)
+│   ├── types           # Định nghĩa kiểu dữ liệu (TypeScript)
+│   ├── css             # Global CSS & Tailwind configuration
+│   └── assets          # Tài nguyên tĩnh (hình ảnh, fonts, icons)
+├── .env                # Biến môi trường chung (APP_ID)
+├── .env.development    # Cấu hình môi trường Development
+├── .env.production     # Cấu hình môi trường Production
+├── .gitignore          # Các tệp loại trừ khi git push
+├── package.json        # Danh sách thư viện và scripts
+└── README.md
