@@ -20,10 +20,27 @@ Dự án được phát triển nhằm hiện đại hóa nền hành chính cô
 - **Hệ tọa độ:** WGS84 (World Geodetic System 1984).
 - **Giao tiếp:** Webhook, API, Access Token.
 
+⚙️ Hướng dẫn vận hành
+Dành cho cán bộ: Quản trị nội dung thông qua AI Dashboard, cập nhật tin tức CCHC.
+
+Dành cho người dân: Quét mã QR tại bộ phận Một cửa hoặc tìm kiếm "UBND xã Cư Jút" trên Zalo.
+
+📈 Hiệu quả sáng kiến
+Đối với người dân: Giảm 30-50% thời gian đi lại.
+
+Đối với chính quyền: Rút ngắn quy trình, tăng tính công khai minh bạch.
+
+Đối với an ninh: Hỗ trợ kịp thời các tình huống khẩn cấp thông qua định vị GPS.
+
+👤 Thông tin tác giả
+Tác giả: Trần Mạnh Hùng
+
+Đơn vị: Phòng Văn hóa – Xã hội xã Cư Jút, tỉnh Lâm Đồng.
+
+Địa chỉ: 353 đường Nguyễn Tất Thành, xã Cư Jút, tỉnh Lâm Đồng.
 ## 📂 Cấu trúc thư mục (Source Code)
 Dự án được tổ chức chặt chẽ theo cấu trúc thư mục hiện đại:
 
-```text
 .
 ├── src
 │   ├── components
